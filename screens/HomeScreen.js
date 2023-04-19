@@ -4,8 +4,13 @@
 import React, { Component } from 'react'
 import { Text, View } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import FeedScreen from './Main/FeedScreen'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+
+//Screens
+import FeedScreen from './Main/FeedScreen'
+import Profile from './Main/Profile'
+import Add from './Main/Add'
+
 
 //Redux
 import  {connect} from 'react-redux'
@@ -25,12 +30,23 @@ export class HomeScreen extends Component {
 
       <Tab.Navigator>
         <Tab.Screen name ='Feed' component={FeedScreen} options={{
+          headerShown: false,
           tabBarIcon:(({color, size}) => (
-            <MaterialCommunityIcons name = 'home' color={color = "#30475E"} size = {26}/>
-          
-
+            <MaterialCommunityIcons name = 'home' color={color} size = {26}/>
           )),
         }} />
+           <Tab.Screen name ='Add' component={Add} options={{
+            headerShown: false,
+          tabBarIcon:(({color, size}) => (
+            <MaterialCommunityIcons name = 'plus-box' color={color} size = {26}/>
+          )),
+        }} />
+           <Tab.Screen name ='Profile' component={Profile} options={{
+            headerShown: false,
+          tabBarIcon:(({color, size}) => (
+            <MaterialCommunityIcons name = 'account-circle' color={color} size = {26}/>
+          )),
+        }}/>
       </Tab.Navigator>
     );
   }
